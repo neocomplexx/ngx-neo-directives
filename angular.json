@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "ngx-neo-directives": {
+      "root": "projects/ngx-neo-directives",
+      "sourceRoot": "projects/ngx-neo-directives/src",
+      "projectType": "library",
+      "prefix": "neo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-neo-directives/tsconfig.lib.json",
+            "project": "projects/ngx-neo-directives/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-neo-directives/src/test.ts",
+            "tsConfig": "projects/ngx-neo-directives/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-neo-directives/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-neo-directives/tsconfig.lib.json",
+              "projects/ngx-neo-directives/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "neo-directives"

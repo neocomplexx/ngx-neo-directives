@@ -1,0 +1,20 @@
+{
+  "name": "ngx-neo-directives",
+  "version": "7.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0"
+  },
+  "author": {
+    "name": "NeoComplexx",
+    "email": "info@neocomplexx.com"
+  },
+  "keywords": [
+    "Angular",
+    "Auto Completer",
+    "Library",
+    "Completer"
+  ],
+  "license": "MIT"
+}

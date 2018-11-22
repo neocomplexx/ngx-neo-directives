@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-neo-directives": [
+        "dist/ngx-neo-directives"
+      ],
+      "ngx-neo-directives/*": [
+        "dist/ngx-neo-directives/*"
+      ]
+    }
   }
 }
