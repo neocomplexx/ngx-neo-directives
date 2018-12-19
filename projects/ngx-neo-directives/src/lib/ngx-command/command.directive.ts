@@ -85,7 +85,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 			tap(x => {
 				if (this.element.nativeElement.localName === 'button') {
 					this.commandDisabledChanged = true;
-					if (this.commandValue === this.command.executingParam) {
+					if (this.commandValue == this.command.executingParam) {
 						this.element.nativeElement.disabled = !x;
 						// } else {
 						// 	this.element.nativeElement.disabled = !(!this.ownDisabledState && x);
@@ -325,14 +325,14 @@ export class Command implements ICommand {
 		pipe$ = pipe$.pipe(tap(() => {
 			// console.log('[command::excutionPipe$] do#2 - set idle');
 			this.isExecuting$.next(false);
-			this.executingParam = null;
+			this.executingParam = undefined;
 			if (isAsync && this.asyncAction != null) { this.resultAsyncAction = this.asyncAction(this.resultAsyncAction); }
 			OnReturnDirective.setNextFocus(this.elementNextFocus);
 		},
 			(e) => {
 				console.log('[command::excutionPipe$] do#2 error - set idle' + e.toString());
 				this.isExecuting$.next(false);
-				this.executingParam = null;
+				this.executingParam = undefined;
 				this.buildExecutionPipe(executeParm, isAsync, delay);
 			}));
 		this.executionPipe$$ = pipe$.subscribe();

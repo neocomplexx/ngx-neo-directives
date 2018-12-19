@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ICommand, Command } from 'ngx-neo-directives';
 
@@ -10,13 +11,23 @@ import { ICommand, Command } from 'ngx-neo-directives';
 export class AppComponent {
 
   public numberModel: number;
-  public testCommand: ICommand = new Command(() => this.test(), new BehaviorSubject(true), false);
 
-  constructor() {
+  public facturarBehavior: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  public testCommand: ICommand = new Command(() => this.test(), new BehaviorSubject(true), false);
+  public testAsyncCommand: ICommand = new Command(() => this.testAsync(), this.facturarBehavior, true);
+
+  constructor(private http: HttpClient) {
     this.numberModel = 0;
   }
 
   private test(): void {
     console.log('Command executed');
+    this.facturarBehavior.next(!this.facturarBehavior.value);
+    console.log('facturarBehavior value: ' + this.facturarBehavior.value);
+  }
+
+  private async testAsync(): Promise<void> {
+    const res: any = await this.http.post('http://localhost:8181/auth/', { username: "test", password: "123456"}).toPromise();
+    console.log('Command Async executed' + res.fullName);
   }
 }
