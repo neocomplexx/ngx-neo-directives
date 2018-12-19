@@ -32,10 +32,7 @@ import { NeoChangeCommandDirective } from './neo-changecommand.directive';
 })
 export class NgxNeoDirectivesModule {
 
-  static forRoot(options?: CommandOptions): ModuleWithProviders {
-    if (!options) {
-      options = { executingCssClass: 'executing' };
-    }
+  static forRoot(options: CommandOptions = { executingCssClass: 'executing' }): ModuleWithProviders {
     return {
       ngModule: NgxNeoDirectivesModule,
       providers: [
