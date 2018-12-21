@@ -10,6 +10,8 @@
 <div class="form-group">
   <label for="exampleInput">Value</label>
   <input [isNumber] [neoAutofocus]="true" #inpNumber id="exampleInput" class="form-control" type="number"  [(ngModel)]="numberModel" [onReturn]="btnCommand" />
+  <input id="exampleText" class="form-control" [changeCommand]="testCommand" />
+  <input id="exampleTextTwo" class="form-control" [changeCommand]="testCommandTwo" />
 </div>
 <div class="for-group">
   <button  #btnCommand class="btn btn-primary" [command]="testCommand">Command execute</button>

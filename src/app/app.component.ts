@@ -14,6 +14,7 @@ export class AppComponent {
 
   public facturarBehavior: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public testCommand: ICommand = new Command(() => this.test(), new BehaviorSubject(true), false);
+  public testCommandTwo: ICommand = new Command(() => this.testTwo(), new BehaviorSubject(true), false);
   public testAsyncCommand: ICommand = new Command(() => this.testAsync(), this.facturarBehavior, true);
 
   constructor(private http: HttpClient) {
@@ -22,8 +23,11 @@ export class AppComponent {
 
   private test(): void {
     console.log('Command executed');
-    this.facturarBehavior.next(!this.facturarBehavior.value);
-    console.log('facturarBehavior value: ' + this.facturarBehavior.value);
+    // this.facturarBehavior.next(!this.facturarBehavior.value);
+    // console.log('facturarBehavior value: ' + this.facturarBehavior.value);
+  }
+  private testTwo(): void {
+    console.log('Command two executed');
   }
 
   private async testAsync(): Promise<void> {

@@ -14,7 +14,7 @@ export class NeoChangeCommandDirective {
     constructor(private element: ElementRef) {
     }
 
-    @HostListener('window:keyup', ['$event']) onInputChange(event: KeyboardEvent) {
+    @HostListener('keyup', ['$event']) onInputChange(event: KeyboardEvent) {
         const value = this.element.nativeElement.value;
 
         if (!this._lastValue || this._lastValue !== value) {
