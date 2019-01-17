@@ -105,34 +105,36 @@ export class CommandDirective implements OnInit, OnDestroy {
 				if (this.element.nativeElement.localName === 'input') {
 					return;
 				}
-				this.command.verifyCommandExecutionPipe();
-				this.command.execute(this.commandValue);
+				this.executeCommand();
 			});
 			this.element.nativeElement.addEventListener('focusin', async (event) => {
 				event.preventDefault();
 				event.stopPropagation();
-				this.command.verifyCommandExecutionPipe();
-				this.command.execute(this.commandValue);
+				this.executeCommand();
 			});
 		} else {
 			this.element.nativeElement.addEventListener('keydown', async (event: KeyboardEvent) => {
 				if ((event.which === 13 || event.keyCode === 13)) {
 					event.preventDefault();
 					event.stopPropagation();
-					this.command.verifyCommandExecutionPipe();
-					this.command.execute(this.commandValue);
+					this.executeCommand();
 				}
 			});
 			this.element.nativeElement.addEventListener('click', async (event: MouseEvent) => {
-				event.preventDefault();
 				if (this.element.nativeElement.localName === 'input') {
 					return;
 				}
-				this.command.verifyCommandExecutionPipe();
-				this.command.execute(this.commandValue);
+				event.preventDefault();
+				this.executeCommand();
 			});
 		}
 
+	}
+
+	executeCommand(): void {
+		if (!this.element.nativeElement.disabled) this.command.canExecute = true;
+		this.command.verifyCommandExecutionPipe();
+		this.command.execute(this.commandValue);
 	}
 
 	ngOnDestroy() {
