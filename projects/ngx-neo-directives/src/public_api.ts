@@ -11,3 +11,4 @@ export * from './lib/ngb-tabset.directive';
 export * from './lib/models';
 export * from './lib/neo-autofocus.directive';
 export * from './lib/neo-changecommand.directive';
+export * from './lib/decimalNumbers.directive';

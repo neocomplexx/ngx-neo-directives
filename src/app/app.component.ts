@@ -11,7 +11,7 @@ import { ICommand, Command } from 'ngx-neo-directives';
 export class AppComponent {
 
   public numberModel: number;
-
+  public inoputDigital: number;
   public facturarBehavior: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public testCommand: ICommand = new Command(() => this.test(), new BehaviorSubject(true), false);
   public testCommandTwo: ICommand = new Command(() => this.testTwo(), new BehaviorSubject(true), false);

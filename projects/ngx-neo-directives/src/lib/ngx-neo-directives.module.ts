@@ -6,6 +6,7 @@ import { NumbersDirective } from './numbers.directive';
 import { NgbTabSetDirective } from './ngb-tabset.directive';
 import { NeoAutofocusDirective } from './neo-autofocus.directive';
 import { NeoChangeCommandDirective } from './neo-changecommand.directive';
+import { NeoDecimalNumbersDirective } from './decimalNumbers.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NeoChangeCommandDirective } from './neo-changecommand.directive';
     NumbersDirective,
     NgbTabSetDirective,
     NeoAutofocusDirective,
-    NeoChangeCommandDirective
+    NeoChangeCommandDirective,
+    NeoDecimalNumbersDirective
   ],
   exports: [
     CommandDirective,
@@ -27,7 +29,8 @@ import { NeoChangeCommandDirective } from './neo-changecommand.directive';
     NumbersDirective,
     NgbTabSetDirective,
     NeoAutofocusDirective,
-    NeoChangeCommandDirective
+    NeoChangeCommandDirective,
+    NeoDecimalNumbersDirective
   ]
 })
 export class NgxNeoDirectivesModule {

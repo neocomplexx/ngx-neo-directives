@@ -18,4 +18,9 @@
   <button  #btnCommand class="btn btn-primary" [command]="testAsyncCommand">Command Async execute</button>
   <button  #btnCommand class="btn btn-primary" (click)="test()">Clic execute</button>
 </div>
+<div class="form-group">
+    <input type="number" [(ngModel)]="inputDigital" [neoDecimalsDirective]=3>
+    {{inputDigital}}
+</div>
+
 </div>
