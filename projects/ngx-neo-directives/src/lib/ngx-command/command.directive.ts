@@ -307,7 +307,7 @@ export class Command implements ICommand {
 			filter(() => this.canExecute),
 			tap(() => {
 				this.isExecuting$.next(true);
-				if (isAsync && this.asyncAction != null) { this.resultAsyncAction = this.asyncAction(null); }
+				if (isAsync && this.asyncAction != null) { this.resultAsyncAction = this.asyncAction(undefined); }
 			}));
 
 		pipe$ = isAsync

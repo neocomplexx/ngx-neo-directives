@@ -56,7 +56,7 @@ export class NeoDecimalNumbersDirective implements OnInit {
         if (!this.isNumber(event.key)) { event.preventDefault(); return; }
 
         if (event.key === '.') {
-            if (this.ngModel.value.toString().indexOf('.') !== -1) {
+            if (this.ngModel.value && this.ngModel.value.toString().indexOf('.') !== -1) {
                 event.preventDefault();
                 event.stopPropagation();
             }
