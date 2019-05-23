@@ -36,7 +36,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 	@Input() commandValue: any;
 	@Input() commandNextFocus: any;
 	// @HostBinding('disabled') isDisabled: boolean;
-
+	@Input() setEnabled = true;
 	private canExecute$$: Subscription;
 	private isExecuting$$: Subscription;
 
@@ -59,6 +59,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 		} else {
 			this.command.verifyCommandExecutionPipe();
 			this.command.setNextFocus(this.commandNextFocus);
+			this.command.setEnabledValue(this.setEnabled);
 		}
 
 		// if (this.element.nativeElement.localName === 'button') {
@@ -203,6 +204,8 @@ export interface ICommand {
 
 	setNextFocus(element: any);
 
+	setEnabledValue(enable: boolean);
+
 }
 
 
@@ -231,6 +234,8 @@ export class Command implements ICommand {
 	public executingParam: any;
 
 	private delaySubscribe: Subscription;
+
+	private setEnabled = true;
 
 	/**
 	 * Creates an instance of Command.
@@ -329,7 +334,7 @@ export class Command implements ICommand {
 			this.isExecuting$.next(false);
 			this.executingParam = undefined;
 			if (isAsync && this.asyncAction != null) { this.resultAsyncAction = this.asyncAction(this.resultAsyncAction); }
-			OnReturnDirective.setNextFocus(this.elementNextFocus);
+			OnReturnDirective.setNextFocus(this.elementNextFocus, this.setEnabled);
 		},
 			(e) => {
 				console.log('[command::excutionPipe$] do#2 error - set idle' + e.toString());
@@ -343,5 +348,8 @@ export class Command implements ICommand {
 
 	public setNextFocus(element: any) {
 		this.elementNextFocus = element;
+	}
+	public setEnabledValue(enabled) {
+		this.setEnabled = enabled;
 	}
 }

@@ -9,13 +9,14 @@
 
 <div class="form-group">
   <label for="exampleInput">Value</label>
-  <input [isNumber] [neoAutofocus]="true" #inpNumber id="exampleInput" class="form-control" type="number"  [(ngModel)]="numberModel" [onReturn]="btnCommand" />
-  <input id="exampleText" class="form-control" [changeCommand]="testCommand" />
-  <input id="exampleTextTwo" class="form-control" [changeCommand]="testCommandTwo" />
+  <input [neoAutofocus]="true"  id="exampleInput" class="form-control" type="number"  [(ngModel)]="numberModel"  
+  [onReturn]="['exampleText', 'exampleTextTwo']" />
+  <input disabled id="exampleText" class="form-control" />
+  <input id="exampleTextTwo" class="form-control"/>
 </div>
 <div class="for-group">
-  <button  #btnCommand class="btn btn-primary" [command]="testCommand">Command execute</button>
-  <button  #btnCommand class="btn btn-primary" [command]="testAsyncCommand">Command Async execute</button>
+  <button  #btnCommand class="btn btn-primary" >Command execute</button>
+  <button  #btnCommand class="btn btn-primary" >Command Async execute</button>
   <button  #btnCommand class="btn btn-primary" (click)="test()">Clic execute</button>
 </div>
 <div class="form-group">

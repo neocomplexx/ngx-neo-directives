@@ -6,6 +6,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class OnReturnDirective {
     private el: ElementRef;
     @Input() onReturn: any;
+    @Input() setEnabled = true;
 
     constructor(private _el: ElementRef) {
         this.el = this._el;
@@ -14,13 +15,13 @@ export class OnReturnDirective {
     @HostListener('keydown', ['$event']) onKeyDown(e) {
         if ((e.which === 13 || e.keyCode === 13)) {
             e.preventDefault();
-            OnReturnDirective.setNextFocus(this.onReturn);
+            OnReturnDirective.setNextFocus(this.onReturn, this.setEnabled);
             return;
         }
     }
 
     // tslint:disable-next-line:member-ordering
-    public static setNextFocus(onReturn: any): void {
+    public static setNextFocus(onReturn: any, setEnabled = true): void {
         if (onReturn instanceof Array) {
             let termine = false;
             let i = 0;
@@ -51,11 +52,13 @@ export class OnReturnDirective {
                             } else {
                                 element = document.getElementById(element);
                                 if (element) {
-                                    if (element.disabled) {
+                                    if (element.disabled && setEnabled) {
                                         element.disabled = false;
                                     }
-                                    element.focus();
-                                    termine = true;
+                                    if (!element.disabled) {
+                                        element.focus();
+                                        termine = true;
+                                    }
                                 }
                             }
                         }
@@ -83,7 +86,7 @@ export class OnReturnDirective {
                 } else {
                     element = document.getElementById(onReturn);
                     if (element) {
-                        if (element.disabled) {
+                        if (element.disabled && setEnabled) {
                             element.disabled = false;
                         }
                         element.focus();
