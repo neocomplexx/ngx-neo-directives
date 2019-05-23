@@ -335,6 +335,7 @@ export class Command implements ICommand {
 				console.log('[command::excutionPipe$] do#2 error - set idle' + e.toString());
 				this.isExecuting$.next(false);
 				this.executingParam = undefined;
+				if (isAsync && this.asyncAction != null) { this.resultAsyncAction = this.asyncAction(this.resultAsyncAction); }
 				this.buildExecutionPipe(executeParm, isAsync, delay);
 			}));
 		this.executionPipe$$ = pipe$.subscribe();
