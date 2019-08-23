@@ -23,6 +23,12 @@
       ],
       "ngx-neo-directives/*": [
         "dist/ngx-neo-directives/*"
+      ],
+      "ngx-neo-directives-mat": [
+        "dist/ngx-neo-directives-mat"
+      ],
+      "ngx-neo-directives-mat/*": [
+        "dist/ngx-neo-directives-mat/*"
       ]
     }
   }

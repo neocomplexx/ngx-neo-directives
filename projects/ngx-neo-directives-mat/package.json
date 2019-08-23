@@ -1,0 +1,30 @@
+{
+  "name": "@neocomplexx/ngx-neo-directives-mat",
+  "version": "7.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/animations": "^7.0.4",
+    "@angular/cdk": "^8.1.3",
+    "@angular/material": "^8.1.3"
+  },
+  "author": {
+    "name": "NeoComplexx",
+    "email": "info@neocomplexx.com"
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/neocomplexx/ngx-neo-directives"
+  },
+  "bugs": {
+    "url": "https://github.com/neocomplexx/ngx-neo-directives/issues"
+  },
+  "keywords": [
+    "Angular",
+    "Commmand",
+    "Library",
+    "Directives",
+    "NeoComplexx"
+  ],
+  "license": "MIT"
+}
