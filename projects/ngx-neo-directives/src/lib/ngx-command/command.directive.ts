@@ -324,7 +324,7 @@ export class Command implements ICommand {
 					return Promise.resolve(null);
 				} else {
 					const result = executeParm(value);
-					return result;
+					return Promise.resolve(result);
 				}
 			}))
 			: pipe$.pipe(tap((value) => { executeParm(value); }));
