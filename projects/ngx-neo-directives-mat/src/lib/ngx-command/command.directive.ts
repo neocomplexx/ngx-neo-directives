@@ -35,6 +35,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 	@Input() commandCanExecute: boolean;
 	@Input() commandValue: any;
 	@Input() commandNextFocus: any;
+	@Input() stopPropagation = false;
 	// @HostBinding('disabled') isDisabled: boolean;
 	@Input() setEnabled = true;
 	private canExecute$$: Subscription;
@@ -126,6 +127,9 @@ export class CommandDirective implements OnInit, OnDestroy {
 					return;
 				}
 				event.preventDefault();
+				if (this.stopPropagation) {
+					event.stopPropagation();
+				}
 				this.executeCommand();
 			});
 		}

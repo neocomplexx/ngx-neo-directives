@@ -1,8 +1,8 @@
 // tslint:disable:indent
 
-import {Directive, OnInit, OnDestroy, Input, Renderer, ElementRef, InjectionToken } from '@angular/core';
+import { Directive, OnInit, OnDestroy, Input, Renderer, ElementRef, InjectionToken } from '@angular/core';
 import { Subscription, Observable, Subject, BehaviorSubject, combineLatest, timer } from 'rxjs';
-import { map, tap, filter, switchMap} from 'rxjs/operators';
+import { map, tap, filter, switchMap } from 'rxjs/operators';
 
 import { OnReturnDirective } from '../onReturn.directive';
 
@@ -34,6 +34,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 	@Input() commandOptions: CommandOptions;
 	@Input() commandCanExecute: boolean;
 	@Input() commandValue: any;
+	@Input() stopPropagation = false;
 	@Input() commandNextFocus: any;
 	// @HostBinding('disabled') isDisabled: boolean;
 	@Input() setEnabled = true;
@@ -48,11 +49,11 @@ export class CommandDirective implements OnInit, OnDestroy {
 	constructor(
 		private renderer: Renderer,
 		private element: ElementRef
-	) {  }
+	) { }
 
 	ngOnInit() {
 		// console.log('[commandDirective::init]');
-		 this.commandOptions = Object.assign({}, this.config, this.commandOptions);
+		this.commandOptions = Object.assign({}, this.config, this.commandOptions);
 
 		if (!this.command) {
 			throw new Error('[commandDirective] command should be defined!');
@@ -126,6 +127,9 @@ export class CommandDirective implements OnInit, OnDestroy {
 					return;
 				}
 				event.preventDefault();
+				if (this.stopPropagation) {
+					event.stopPropagation();
+				}
 				this.executeCommand();
 			});
 		}
