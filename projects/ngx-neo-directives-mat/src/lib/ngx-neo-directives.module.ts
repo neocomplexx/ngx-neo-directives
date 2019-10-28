@@ -6,6 +6,7 @@ import { NumbersDirective } from './numbers.directive';
 import { NeoAutofocusDirective } from './neo-autofocus.directive';
 import { NeoChangeCommandDirective } from './neo-changecommand.directive';
 import { NeoDecimalNumbersDirective } from './decimalNumbers.directive';
+import { NeoCompositeInputDirective } from './composite-input/composite-input.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NeoDecimalNumbersDirective } from './decimalNumbers.directive';
     NumbersDirective,
     NeoAutofocusDirective,
     NeoChangeCommandDirective,
-    NeoDecimalNumbersDirective
+    NeoDecimalNumbersDirective,
+    NeoCompositeInputDirective
   ],
   exports: [
     CommandDirective,
@@ -27,7 +29,8 @@ import { NeoDecimalNumbersDirective } from './decimalNumbers.directive';
     NumbersDirective,
     NeoAutofocusDirective,
     NeoChangeCommandDirective,
-    NeoDecimalNumbersDirective
+    NeoDecimalNumbersDirective,
+    NeoCompositeInputDirective
   ]
 })
 export class NgxNeoDirectivesModule {
