@@ -7,7 +7,7 @@ import { NgbTabSetDirective } from './ngb-tabset.directive';
 import { NeoAutofocusDirective } from './neo-autofocus.directive';
 import { NeoChangeCommandDirective } from './neo-changecommand.directive';
 import { NeoDecimalNumbersDirective } from './decimalNumbers.directive';
-import { NeoCompositeInputDirective } from './composite-input';
+import { NeoCompositeInputDirective } from './composite-input/composite-input.directive';
 
 
 @NgModule({
