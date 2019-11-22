@@ -8,6 +8,7 @@ import { NeoAutofocusDirective } from './neo-autofocus.directive';
 import { NeoChangeCommandDirective } from './neo-changecommand.directive';
 import { NeoDecimalNumbersDirective } from './decimalNumbers.directive';
 import { NeoCompositeInputDirective } from './composite-input/composite-input.directive';
+import { NeoMatchHeightDirective } from './neo-matchheight.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NeoCompositeInputDirective } from './composite-input/composite-input.di
     NeoAutofocusDirective,
     NeoChangeCommandDirective,
     NeoDecimalNumbersDirective,
-    NeoCompositeInputDirective
+    NeoCompositeInputDirective,
+    NeoMatchHeightDirective,
   ],
   exports: [
     CommandDirective,
@@ -33,7 +35,8 @@ import { NeoCompositeInputDirective } from './composite-input/composite-input.di
     NeoAutofocusDirective,
     NeoChangeCommandDirective,
     NeoDecimalNumbersDirective,
-    NeoCompositeInputDirective
+    NeoCompositeInputDirective,
+    NeoMatchHeightDirective
   ]
 })
 export class NgxNeoDirectivesModule {

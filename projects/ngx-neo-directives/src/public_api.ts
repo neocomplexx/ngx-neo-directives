@@ -14,3 +14,4 @@ export * from './lib/neo-changecommand.directive';
 export * from './lib/decimalNumbers.directive';
 export * from './lib/composite-input/commandKey.function';
 export * from './lib/composite-input/composite-input.directive';
+export * from './lib/neo-matchheight.directive';
