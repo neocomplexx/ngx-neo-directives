@@ -1,6 +1,6 @@
 // tslint:disable:indent
 
-import {Directive, OnInit, OnDestroy, Input, Renderer, ElementRef, InjectionToken } from '@angular/core';
+import {Directive, OnInit, OnDestroy, Input, ElementRef, InjectionToken, Renderer2 } from '@angular/core';
 import { Subscription, Observable, Subject, BehaviorSubject, combineLatest, timer } from 'rxjs';
 import { map, tap, filter, switchMap} from 'rxjs/operators';
 
@@ -47,7 +47,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 	private commandDisabledChanged = false;
 
 	constructor(
-		private renderer: Renderer,
+		private renderer: Renderer2,
 		private element: ElementRef
 	) {  }
 
@@ -96,8 +96,8 @@ export class CommandDirective implements OnInit, OnDestroy {
 			})).subscribe();
 		this.isExecuting$$ = this.command.isExecuting$.pipe(
 			tap(x => {
-				// console.log('[commandDirective::isExecuting$]', x);
-				this.renderer.setElementClass(this.element.nativeElement, this.commandOptions.executingCssClass, x);
+        // console.log('[commandDirective::isExecuting$]', x);
+        x ? this.renderer.addClass(this.element.nativeElement, this.commandOptions.executingCssClass) : this.renderer.removeClass(this.element.nativeElement, this.commandOptions.executingCssClass);
 			})).subscribe();
 
 		if (this.isMobileOperatingSystem()) {
