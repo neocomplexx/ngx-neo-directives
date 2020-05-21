@@ -1,12 +1,12 @@
 {
   "name": "@neocomplexx/ngx-neo-directives-mat",
-  "version": "7.0.4",
+  "version": "8.0.0",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@angular/animations": "^7.0.4",
-    "@angular/cdk": "^7.0.0",
-    "@angular/material": "^7.0.0"
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/animations": "^8.2.14",
+    "@angular/cdk": "^8.2.3",
+    "@angular/material": "^8.2.3"
   },
   "author": {
     "name": "NeoComplexx",
