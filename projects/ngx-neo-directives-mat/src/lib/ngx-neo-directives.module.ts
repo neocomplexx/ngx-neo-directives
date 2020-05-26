@@ -38,7 +38,7 @@ import { NeoMatchHeightDirective } from 'projects/ngx-neo-directives/src/public_
 })
 export class NgxNeoDirectivesModule {
 
-  static forRoot(options: CommandOptions = { executingCssClass: 'executing' }): ModuleWithProviders {
+  static forRoot(options: CommandOptions = { executingCssClass: 'executing' }): ModuleWithProviders<NgxNeoDirectivesModule> {
     return {
       ngModule: NgxNeoDirectivesModule,
       providers: [
