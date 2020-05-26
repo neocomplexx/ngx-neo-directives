@@ -4,8 +4,9 @@
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^9.0.0",
-    "@angular/localize": "9.0.0"
+    "@angular/localize": "9.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^6.0.0",
+    "bootstrap": "^4.4.1"
   },
   "author": {
     "name": "NeoComplexx",
