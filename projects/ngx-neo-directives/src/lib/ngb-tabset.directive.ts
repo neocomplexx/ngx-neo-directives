@@ -1,6 +1,6 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import type { OnInit, OnDestroy } from '@angular/core';
-import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
+import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { ITabChangeController } from './models';
 
@@ -12,7 +12,7 @@ import { ITabChangeController } from './models';
     selector: '[tabSelectedId], [tabChangeController]',
 })
 export class NgbTabSetDirective implements OnInit, OnDestroy {
-    protected el: NgbTabset;
+    protected el: NgbNav;
     protected tabSelectedIdSubscribe: Subscription;
 
     @Input() tabSelectedId: BehaviorSubject<string>;
@@ -21,7 +21,7 @@ export class NgbTabSetDirective implements OnInit, OnDestroy {
 
     protected onTabChanging: boolean;
 
-    constructor(protected _el: NgbTabset) {
+    constructor(protected _el: NgbNav) {
         this.el = this._el;
         this.onTabChanging = false;
     }
@@ -30,7 +30,7 @@ export class NgbTabSetDirective implements OnInit, OnDestroy {
         if (this.tabSelectedId) {
             this.tabSelectedIdSubscribe = this.tabSelectedId.subscribe((tabSelectedId) => {
                 if (tabSelectedId.length > 0) {
-                    const tabs = this.el as NgbTabset;
+                    const tabs = this.el as NgbNav;
                     // const previousValue = this.tabSelectedId.value;
                     if (tabs.activeId !== tabSelectedId) {
                         tabs.select(tabSelectedId);

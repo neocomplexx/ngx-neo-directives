@@ -32,7 +32,12 @@ export class AppComponent {
 
   private async testAsync(): Promise<void> {
     // const res: any = await this.http.post('http://localhost:8181/auth/', { username: "test", password: "123456"}).toPromise();
-    const res: any = await this.http.get('https://jsonplaceholder.typicode.com/users/1').toPromise();
-    console.log('Command Async executed: ' + res.name);
+    // const res: any = await this.http.get('https://jsonplaceholder.typicode.com/users/1').toPromise();
+    const res: any = await this.delay(3000);
+    console.log('Command Async executed: ' + (res?.fullName ?? res?.name ?? ''));
+  }
+
+  private delay(delay: number) {
+    return new Promise(resolve => setTimeout(resolve, delay));
   }
 }

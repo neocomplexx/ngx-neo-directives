@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxNeoDirectivesModule.forRoot(null),
+    NgxNeoDirectivesModule.forRoot(),
     FormsModule
   ],
   providers: [],
