@@ -1,9 +1,8 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input, ElementRef, Renderer2 } from '@angular/core';
 import type { OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+
 @Directive({
-    selector: '[ngModel][neoDecimalsDirective]',
-    providers: [NgModel]
+    selector: '[neoDecimalsDirective]',
 })
 export class NeoDecimalNumbersDirective implements OnInit {
 
@@ -12,7 +11,7 @@ export class NeoDecimalNumbersDirective implements OnInit {
     private prev: any;
     private regex: RegExp;
 
-    constructor(private ngModel: NgModel) {
+    constructor(private el: ElementRef, private renderer: Renderer2) {
     }
 
     ngOnInit() {
@@ -27,12 +26,12 @@ export class NeoDecimalNumbersDirective implements OnInit {
         const onlyNumbers = Array.from(pastedData).map(x => this.isNumber(x)).reduce((prev, el) => prev && el, true);
         const a = this.regex.test(pastedData);
         if (onlyNumbers && a) {
-            this.ngModel.control.setValue(pastedData);
+            this.renderer.setProperty(this.el.nativeElement, 'value', pastedData);
         }
     }
 
     @HostListener('keyup', ['$event']) onKeyUp(event: KeyboardEvent) {
-        let current: string = this.ngModel.value;
+        let current: string = this.el.nativeElement.value;
 
         if (this.isSpecial(event)) { return; }
 
@@ -42,11 +41,11 @@ export class NeoDecimalNumbersDirective implements OnInit {
             current = current.toString();
             const dotIndex = current.indexOf('.');
             if ((dotIndex >= 0) && ((current.length - 1) - dotIndex > this.decimals)) {
-                this.ngModel.control.setValue(current.slice(0, dotIndex + this.decimals + 1));
+                this.renderer.setProperty(this.el.nativeElement, 'value', current.slice(0, dotIndex + this.decimals + 1));
             }
         } else {
-            this.ngModel.control.setValue(this.prev);
-        }
+            this.renderer.setProperty(this.el.nativeElement, 'value', this.prev);
+          }
 
     }
 
@@ -55,14 +54,15 @@ export class NeoDecimalNumbersDirective implements OnInit {
         if (this.isSpecial(event)) { return; }
 
         if (!this.isNumber(event.key)) { event.preventDefault(); return; }
+        let current: string = this.el.nativeElement.value;
 
         if (event.key === '.') {
-            if (this.ngModel.value && this.ngModel.value.toString().indexOf('.') !== -1) {
+            if (current && current.toString().indexOf('.') !== -1) {
                 event.preventDefault();
                 event.stopPropagation();
             }
         }
-        this.prev = this.ngModel.value;
+        this.prev = current;
     }
 
     private isSpecial(e: KeyboardEvent): boolean {
