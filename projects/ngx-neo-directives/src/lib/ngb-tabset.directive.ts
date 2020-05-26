@@ -1,4 +1,5 @@
-import { Directive, HostListener, Input, OnInit, OnDestroy } from '@angular/core';
+import { Directive, HostListener, Input } from '@angular/core';
+import type { OnInit, OnDestroy } from '@angular/core';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { ITabChangeController } from './models';

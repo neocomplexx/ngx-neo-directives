@@ -1,7 +1,8 @@
 import {
-    Directive, ElementRef, AfterViewChecked,
+    Directive, ElementRef,
     Input, HostListener
 } from '@angular/core';
+import type { AfterViewChecked } from '@angular/core';
 
 @Directive({
     // tslint:disable-next-line:directive-selector

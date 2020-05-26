@@ -1,4 +1,5 @@
-import { Directive, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, HostListener, Input } from '@angular/core';
+import type { OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 @Directive({
     selector: '[ngModel][neoDecimalsDirective]',
