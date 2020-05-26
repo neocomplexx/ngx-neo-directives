@@ -1,10 +1,11 @@
 {
   "name": "@neocomplexx/ngx-neo-directives",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14",
-    "@ng-bootstrap/ng-bootstrap": "^5.3"
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^9.0.0",
+    "@angular/localize": "9.0.0"
   },
   "author": {
     "name": "NeoComplexx",
