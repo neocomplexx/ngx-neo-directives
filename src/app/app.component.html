@@ -1,27 +1,29 @@
 <div class="container">
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Ngx-Neo-Directives
-  </h1>
-</div>
-<h2>Here are some usage examples: </h2>
+  <!--The content below is only a placeholder and can be replaced.-->
+  <div style="text-align:center">
+    <h1>
+      Ngx-Neo-Directives
+    </h1>
+  </div>
+  <h2>Here are some usage examples: </h2>
 
-<div class="form-group">
-  <label for="exampleInput">Value</label>
-  <input [neoAutofocus]="true"  id="exampleInput" class="form-control" type="number"  [(ngModel)]="numberModel"  
-  [onReturn]="['exampleText', 'exampleTextTwo']" />
-  <input disabled id="exampleText" class="form-control" />
-  <input id="exampleTextTwo" class="form-control"/>
-</div>
-<div class="for-group">
-  <button  #btnCommand class="btn btn-primary" >Command execute</button>
-  <button  #btnCommand class="btn btn-primary" >Command Async execute</button>
-  <button  #btnCommand class="btn btn-primary" (click)="test()">Clic execute</button>
-</div>
-<div class="form-group">
+  <div class="form-group">
+    <label for="exampleInput">Value</label>
+    <input [neoAutofocus]="true" id="exampleInput" class="form-control" type="number" [(ngModel)]="numberModel"
+      [onReturn]="['exampleText', 'exampleTextTwo']" [setEnabled]="numberModel === 1" />
+    <input disabled id="exampleText" class="form-control" />
+    <input id="exampleTextTwo" class="form-control" />
+  </div>
+  <div class="form-group">
+    <button #btnCommand class="btn btn-primary mr-2" [command]="testCommand">Command execute</button>
+    <button #btnCommand class="btn btn-primary mr-2" [command]="testAsyncCommand">Command Async execute</button>
+    <button #btnCommand class="btn btn-primary" (click)="testCommand.execute()">Clic execute</button>
+  </div>
+  <div class="form-group">
+    <input type="text" #inpDelay [changeCommand]="testCommandWithDelay">
+  </div>
+  <div class="form-group">
     <input type="number" [(ngModel)]="inputDigital" [neoDecimalsDirective]=3>
     {{inputDigital}}
-</div>
-
+  </div>
 </div>

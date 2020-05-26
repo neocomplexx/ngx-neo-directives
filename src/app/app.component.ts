@@ -11,27 +11,28 @@ import { ICommand, Command } from 'ngx-neo-directives';
 export class AppComponent {
 
   public numberModel: number;
-  public inoputDigital: number;
+  public inputDigital: number;
   public facturarBehavior: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public testCommand: ICommand = new Command(() => this.test(), new BehaviorSubject(true), false);
-  public testCommandTwo: ICommand = new Command(() => this.testTwo(), new BehaviorSubject(true), false);
+  public testCommandWithDelay: ICommand = new Command((value) => this.testWithDelay(value), new BehaviorSubject(true), false, 200);
   public testAsyncCommand: ICommand = new Command(() => this.testAsync(), this.facturarBehavior, true);
 
   constructor(private http: HttpClient) {
     this.numberModel = 0;
   }
 
-  private test(): void {
+  public test(): void {
     console.log('Command executed');
     // this.facturarBehavior.next(!this.facturarBehavior.value);
     // console.log('facturarBehavior value: ' + this.facturarBehavior.value);
   }
-  private testTwo(): void {
-    console.log('Command two executed');
+  private testWithDelay(value: any): void {
+    console.log('Command: ', value);
   }
 
   private async testAsync(): Promise<void> {
-    const res: any = await this.http.post('http://localhost:8181/auth/', { username: "test", password: "123456"}).toPromise();
-    console.log('Command Async executed' + res.fullName);
+    // const res: any = await this.http.post('http://localhost:8181/auth/', { username: "test", password: "123456"}).toPromise();
+    const res: any = await this.http.get('https://jsonplaceholder.typicode.com/users/1').toPromise();
+    console.log('Command Async executed: ' + res.name);
   }
 }
