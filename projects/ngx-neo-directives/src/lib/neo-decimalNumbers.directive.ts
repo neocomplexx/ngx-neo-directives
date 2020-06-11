@@ -17,10 +17,10 @@ export class NeoDecimalNumbersDirective implements OnInit {
     }
 
     ngOnInit() {
-        this.regex = new RegExp('^[0-9]+(\\.[0-9]{0,' + this.decimals + '})?$');
         if (<any>this.decimals == "") this.decimals = 2;
         if (<any>this.allowNullValue === "") this.allowNullValue = true;
         this.el.nativeElement.type = "number"
+        this.regex = new RegExp('^[0-9]+(\\.[0-9]{0,' + this.decimals + '})?$');
     }
 
     @HostListener('paste', ['$event']) blockPaste(e: ClipboardEvent) {
