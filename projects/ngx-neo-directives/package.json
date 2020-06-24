@@ -1,6 +1,6 @@
 {
   "name": "@neocomplexx/ngx-neo-directives",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
@@ -10,7 +10,7 @@
     "name": "NeoComplexx",
     "email": "info@neocomplexx.com"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/neocomplexx/ngx-neo-directives"
   },

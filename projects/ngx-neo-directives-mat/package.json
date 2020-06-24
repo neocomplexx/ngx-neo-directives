@@ -1,6 +1,6 @@
 {
   "name": "@neocomplexx/ngx-neo-directives-mat",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
