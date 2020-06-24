@@ -12,7 +12,7 @@
     "name": "NeoComplexx",
     "email": "info@neocomplexx.com"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/neocomplexx/ngx-neo-directives"
   },

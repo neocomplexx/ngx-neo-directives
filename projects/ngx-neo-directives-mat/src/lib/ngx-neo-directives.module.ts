@@ -7,7 +7,7 @@ import { NeoAutofocusDirective } from './neo-autofocus.directive';
 import { NeoChangeCommandDirective } from './neo-changecommand.directive';
 import { NeoDecimalNumbersDirective } from './neo-decimalNumbers.directive';
 import { NeoCompositeInputDirective } from './composite-input/composite-input.directive';
-import { NeoMatchHeightDirective } from 'projects/ngx-neo-directives/src/public_api';
+import { NeoMatchHeightDirective } from './neo-matchheight.directive';
 
 
 @NgModule({
