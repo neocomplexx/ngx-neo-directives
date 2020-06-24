@@ -35,6 +35,8 @@ export class OnReturnDirective {
                         if (!element.disabled) {
                             element.focus(); termine = true;
                         }
+                    } else if (element.formInp && element.formInp.nativeElement) {
+                        element.formInp.nativeElement.focus();
                     } else {
                         if (element && element.nativeElement instanceof HTMLInputElement ||
                             element.nativeElement instanceof HTMLButtonElement ||
@@ -73,6 +75,8 @@ export class OnReturnDirective {
                     element.disabled = false;
                 }
                 element.focus();
+            } else if (element.formInp && element.formInp.nativeElement) {
+                element.formInp.nativeElement.focus();
             } else {
                 let input = element['ctrInput'];
                 if (input) {
