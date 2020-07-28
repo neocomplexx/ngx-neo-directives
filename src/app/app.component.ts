@@ -12,7 +12,7 @@ export class AppComponent {
 
   public numberModel: number;
   public inoputDigital: number;
-  public facturarBehavior: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  public facturarBehavior: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public testCommand: ICommand = new Command(() => this.test(), new BehaviorSubject(true), false);
   public testCommandTwo: ICommand = new Command(() => this.testTwo(), new BehaviorSubject(true), false);
   public testAsyncCommand: ICommand = new Command(() => this.testAsync(), this.facturarBehavior, true);
@@ -22,6 +22,7 @@ export class AppComponent {
   }
 
   private test(): void {
+    this.facturarBehavior.next(true);
     console.log('Command executed');
     // this.facturarBehavior.next(!this.facturarBehavior.value);
     // console.log('facturarBehavior value: ' + this.facturarBehavior.value);

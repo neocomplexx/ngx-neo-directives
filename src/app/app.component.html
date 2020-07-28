@@ -15,12 +15,12 @@
   <input id="exampleTextTwo" class="form-control"/>
 </div>
 <div class="for-group">
-  <button  #btnCommand class="btn btn-primary" >Command execute</button>
-  <button  #btnCommand class="btn btn-primary" >Command Async execute</button>
+  <button  #btnCommand1 class="btn btn-primary" [command]="testCommand">Command execute</button>
+  <button  #btnCommand2 class="btn btn-primary" [command]="testAsyncCommand">Command Async execute</button>
   <button  #btnCommand class="btn btn-primary" (click)="test()">Clic execute</button>
 </div>
 <div class="form-group">
-    <input type="number" [(ngModel)]="inputDigital" [neoDecimalsDirective]=3>
+    <input type="number" [(ngModel)]="inputDigital" [isDecimal]=3>
     {{inputDigital}}
 </div>
 

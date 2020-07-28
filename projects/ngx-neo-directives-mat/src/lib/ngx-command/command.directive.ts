@@ -88,8 +88,11 @@ export class CommandDirective implements OnInit, OnDestroy {
 				if (this.element.nativeElement.localName === 'button') {
 					this.commandDisabledChanged = true;
 					if (this.commandValue == this.command.executingParam) {
-						this.element.nativeElement.disabled = !x;
-						// } else {
+						setTimeout(() => {
+							this.renderer.setAttribute(this.element.nativeElement, 'disabled', (!x).toString())
+							this.element.nativeElement.disabled = !x;
+						});
+							// } else {
 						// 	this.element.nativeElement.disabled = !(!this.ownDisabledState && x);
 					}
 				}
