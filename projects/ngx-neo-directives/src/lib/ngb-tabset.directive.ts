@@ -1,5 +1,5 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import type { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { ITabChangeController } from './models';

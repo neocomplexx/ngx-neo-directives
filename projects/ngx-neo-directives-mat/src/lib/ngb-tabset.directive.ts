@@ -1,5 +1,5 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import type { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { ITabChangeController } from './models';
 import { MatTabGroup } from '@angular/material/tabs';

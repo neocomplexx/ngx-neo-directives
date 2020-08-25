@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input } from '@angular/core';
-import type { OnInit, AfterViewInit } from '@angular/core';
+import { OnInit, AfterViewInit } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 
 @Directive({

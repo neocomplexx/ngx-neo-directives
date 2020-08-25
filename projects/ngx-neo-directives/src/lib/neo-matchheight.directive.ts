@@ -2,7 +2,7 @@ import {
     Directive, ElementRef,
     Input, HostListener
 } from '@angular/core';
-import type { AfterViewChecked } from '@angular/core';
+import { AfterViewChecked } from '@angular/core';
 
 @Directive({
     selector: '[neoMatchHeight]'

@@ -1,7 +1,7 @@
 // tslint:disable:indent
 
 import { Directive, Input, ElementRef, InjectionToken, Renderer2 } from '@angular/core';
-import type { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable, Subject, BehaviorSubject, combineLatest, timer } from 'rxjs';
 import { map, tap, filter, switchMap } from 'rxjs/operators';
 
